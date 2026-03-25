@@ -1269,7 +1269,7 @@ namespace olc::sound
 
 	bool ModularSynth::RemoveModule(Module* pModule)
 	{
-		if (std::find(m_vModules.begin(), m_vModules.end(), pModule) == std::end(m_vModules))
+		if (std::find(m_vModules.begin(), m_vModules.end(), pModule) != std::end(m_vModules))
 		{
 			m_vModules.erase(std::remove(m_vModules.begin(), m_vModules.end(), pModule), m_vModules.end());
 			return true;
@@ -1300,7 +1300,7 @@ namespace olc::sound
 	{
 		std::pair<Property*, Property*> newPatch = std::pair<Property*, Property*>(pInput, pOutput);
 
-		if (std::find(m_vPatches.begin(), m_vPatches.end(), newPatch) == std::end(m_vPatches))
+		if (std::find(m_vPatches.begin(), m_vPatches.end(), newPatch) != std::end(m_vPatches))
 		{
 			m_vPatches.erase(std::remove(m_vPatches.begin(), m_vPatches.end(), newPatch), m_vPatches.end());
 			return true;
